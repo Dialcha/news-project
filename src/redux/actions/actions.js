@@ -7,7 +7,7 @@ import {
 } from "./actionTypes";
 import * as moment from "moment";
 
-export default function selectCategory(category) {
+export function selectCategory(category) {
   return {
     type: SELECT_CATEGORY,
     category,
@@ -29,7 +29,7 @@ export function receiveNews(category, json) {
     receivedAt: Date.now(),
   };
 }
-2;
+
 export function fetchNews(category) {
   return function (dispatch) {
     if (category === "principales") {

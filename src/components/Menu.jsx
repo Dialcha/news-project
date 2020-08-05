@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Navbar, Nav, Form, FormControl, Button } from 'react-bootstrap';
 import { LinkContainer } from 'react-router-bootstrap'
-import selectCategory from "../redux/actions/actions";
+import {fetchNews} from "../redux/actions/actions";
 import { connect } from "react-redux";
 import { withRouter } from "react-router"
 
@@ -54,7 +54,7 @@ class Menu extends Component {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-      onCategoryClick: (category) => dispatch(selectCategory(category)),
+      onCategoryClick: (category) => dispatch(fetchNews(category)),
     };
   };
 
