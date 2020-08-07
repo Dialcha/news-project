@@ -33,17 +33,23 @@ export function receiveNews(category, json) {
 
 export function fetchNews(category) {
   return function (dispatch) {
-    if (category === "principales") {
+    if (category === 0) {
       let today = moment().format("YYYY-MM-DD");
       dispatch(requestNews(category));
       return fetch(`https://api.canillitapp.com/latest/${today}`)
         .then((response) => response.json())
-        .then((json) => dispatch(receiveNews(category, json)));
+        .then((json) => {
+          const news = json.slice(0, 10);
+          dispatch(receiveNews(category, news))
+        });
     } else {
       dispatch(requestNews(category));
-      return fetch(`https://api.canillitapp.com/news/category/1`)
+      return fetch(`https://api.canillitapp.com/news/category/${category}`)
         .then((response) => response.json())
-        .then((json) => dispatch(receiveNews(category, json)));
+        .then((json) => {
+          const news = json.slice(0, 10);
+          dispatch(receiveNews(category, news))
+        });
     }
   };
 }

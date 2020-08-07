@@ -1,8 +1,8 @@
 import React from "react";
-import Menu from "./components/Menu";
-import Noticias from "./components/Noticias";
 import MenuContainer from "./containers/MenuContainer";
 import NewsContainer from "./containers/NewsContainer";
+import Loading from "./components/Loading";
+
 
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 

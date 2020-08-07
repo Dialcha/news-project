@@ -17,12 +17,12 @@ class MenuContainer extends Component {
         console.log(e);
     }
 
-    handleClick(e) {
-        console.log(e);
+    handleClick() {
         return(
             setTimeout(() => {
                 let param = this.props.location.pathname
-                this.props.onCategoryClick(param.slice(1, param.length));
+                let idRoute = dataMenu.find(element => element.route === param);
+                this.props.onCategoryClick(idRoute.id);
             }, 1) // Se añade el timeOut porque sin el, this.props.location registra la ubicación anterior
         )
     }
