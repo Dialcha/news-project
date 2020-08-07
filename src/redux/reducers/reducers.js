@@ -6,6 +6,13 @@ import {
     RECEIVE_NEWS,
   } from "../actions/actionTypes";
 
+const initialState = {
+  news : {
+    isFetching: true,
+    items: []
+  }
+ }
+
 
 function selectedCategory(state = 'principales', action) {
     switch (action.type) {
@@ -39,12 +46,12 @@ function news(
     }
   }
 
-  function newsByCategory(state = {}, action) {
+  function newsByCategory(state = initialState, action) {
     switch (action.type) {
         case RECEIVE_NEWS:
         case REQUEST_CATEGORY:
             return Object.assign({}, state, {
-                [action.category]: news(state[action.category], action)
+                news: news(state[action.category], action)
             })
         default:
             return state

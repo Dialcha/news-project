@@ -1,6 +1,6 @@
-import React, { Component } from 'react'
-import { Navbar, Nav, Form, FormControl, Button } from 'react-bootstrap';
-import { LinkContainer } from 'react-router-bootstrap'
+import React, { Component } from 'react' //
+import { Navbar, Nav, Form, FormControl, Button } from 'react-bootstrap'; //
+import { LinkContainer } from 'react-router-bootstrap' //
 import {fetchNews} from "../redux/actions/actions";
 import { connect } from "react-redux";
 import { withRouter } from "react-router"

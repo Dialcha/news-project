@@ -1,4 +1,5 @@
 import fetch from "isomorphic-fetch";
+import { dataMenu } from '../../assets/datamenu';
 import {
   SEARCH_NEWS,
   SELECT_CATEGORY,

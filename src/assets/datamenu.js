@@ -1,27 +1,33 @@
 export const dataMenu = [
     {
         id: 0,
-        name: "principal"
+        category: 'Principal',
+        route: '/principales'
     },
     {
         id: 1,
-        name: "politica"
+        category: 'Política',
+        route: '/politica'
     },
     {
         id: 2,
-        name: "internacionales"
+        category: 'Internacionales',
+        route: '/internacionales'
     },
     {
         id: 3,
-        name: "tecnologia"
+        category: 'Tecnología',
+        route: '/tecnologia'
     },
     {
         id: 4,
-        name: "espectaculos"
+        category: 'Espectáculos',
+        route: '/espectaculos'
     },
     {
         id: 5,
-        name: "deportes"
+        category: 'Deportes',
+        route: '/deportes'
     },
 ]
 
