@@ -1,5 +1,5 @@
 import fetch from "isomorphic-fetch";
-import { dataMenu } from '../../assets/datamenu';
+import { dataMenu } from "../../assets/datamenu";
 import {
   SEARCH_NEWS,
   SELECT_CATEGORY,
@@ -31,7 +31,7 @@ export function receiveNews(category, json) {
   };
 }
 
-export function fetchNews(category) {
+export function fetchNews(category, keyword) {
   return function (dispatch) {
     if (category === 0) {
       let today = moment().format("YYYY-MM-DD");
@@ -40,15 +40,23 @@ export function fetchNews(category) {
         .then((response) => response.json())
         .then((json) => {
           const news = json.slice(0, 10);
-          dispatch(receiveNews(category, news))
+          dispatch(receiveNews(category, news));
         });
+    } else if (category === 'search') {
+      dispatch(requestNews(category));
+      return fetch(`https://api.canillitapp.com/search/${keyword}`)
+      .then((response) => response.json())
+      .then((json) => {
+        const news = json.slice(0, 10);
+        dispatch(receiveNews(category, news));
+      });
     } else {
       dispatch(requestNews(category));
       return fetch(`https://api.canillitapp.com/news/category/${category}`)
         .then((response) => response.json())
         .then((json) => {
           const news = json.slice(0, 10);
-          dispatch(receiveNews(category, news))
+          dispatch(receiveNews(category, news));
         });
     }
   };

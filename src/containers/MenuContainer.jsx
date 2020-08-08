@@ -14,7 +14,8 @@ class MenuContainer extends Component {
 
     handleSubmit(e) {
         e.preventDefault()
-        console.log(e);
+        let value = document.getElementById("searchInput").value;
+        this.props.onCategoryClick('search', value)
     }
 
     handleClick() {
@@ -39,7 +40,7 @@ class MenuContainer extends Component {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-      onCategoryClick: (category) => dispatch(fetchNews(category)),
+      onCategoryClick: (category, keyword) => dispatch(fetchNews(category, keyword)),
     };
   };
 

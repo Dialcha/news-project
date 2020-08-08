@@ -4,11 +4,6 @@ import MenuItem from './MenuItem';
 import { LinkContainer } from 'react-router-bootstrap' //
 
 function Menu ({ handleClick, handleSubmit, items }) {
-
-    //const categories = items.map(item => {
-    //    return(<LinkContainer key={item.id} to="/principales"><MenuItem handleClick={handleClick} title={item.category}/></LinkContainer>)
-    //})
-
     return(
         <div>
                 <Navbar bg="light" expand="lg">
@@ -24,7 +19,7 @@ function Menu ({ handleClick, handleSubmit, items }) {
                         <LinkContainer to={'/deportes'}><Nav.Link onClick={handleClick}>Deportes</Nav.Link></LinkContainer>           
                         </Nav>
                         <Form inline onSubmit={ handleSubmit }>
-                            <FormControl type="text" placeholder="Buscar noticias.." className="mr-sm-2" />
+                            <FormControl id="searchInput" type="text" placeholder="Buscar noticias.." className="mr-sm-2" />
                             <Button variant="outline-success" type="submit">Buscar</Button>
                         </Form>
                     </Navbar.Collapse>
