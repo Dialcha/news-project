@@ -42,14 +42,14 @@ export function fetchNews(category, keyword) {
           const news = json.slice(0, 10);
           dispatch(receiveNews(category, news));
         });
-    } else if (category === 'search') {
+    } else if (category === "search") {
       dispatch(requestNews(category));
       return fetch(`https://api.canillitapp.com/search/${keyword}`)
-      .then((response) => response.json())
-      .then((json) => {
-        const news = json.slice(0, 10);
-        dispatch(receiveNews(category, news));
-      });
+        .then((response) => response.json())
+        .then((json) => {
+          const news = json.slice(0, 10);
+          dispatch(receiveNews(category, news));
+        });
     } else {
       dispatch(requestNews(category));
       return fetch(`https://api.canillitapp.com/news/category/${category}`)
