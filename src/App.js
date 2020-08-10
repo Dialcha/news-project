@@ -14,7 +14,7 @@ function App() {
         <MenuContainer />
         <br></br>
         <Switch>
-          <Route path="/principales" component={NewsContainer}></Route>
+          <Route exact path="/" component={NewsContainer}></Route>
           <Route path="/politica" component={NewsContainer}></Route>
           <Route path="/internacionales" component={NewsContainer}></Route>
           <Route path="/tecnologia" component={NewsContainer}></Route>

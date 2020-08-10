@@ -2,7 +2,7 @@ export const dataMenu = [
     {
         id: 0,
         category: 'Principal',
-        route: '/principales'
+        route: '/'
     },
     {
         id: 1,

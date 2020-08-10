@@ -1,17 +1,16 @@
 import React from 'react'
 import { Navbar, Nav, Form, FormControl, Button } from 'react-bootstrap';
-import MenuItem from './MenuItem';
 import { LinkContainer } from 'react-router-bootstrap' //
 
-function Menu ({ handleSubmit }) {
+function Menu ({ handleSubmit, paramSearch }) {
     return(
         <div>
                 <Navbar bg="light" expand="lg">
-                <LinkContainer to={'/principales'}><Navbar.Brand>NEWS-APP</Navbar.Brand></LinkContainer>
+                <LinkContainer exact to={'/'}><Navbar.Brand>NEWS-APP</Navbar.Brand></LinkContainer>
                     <Navbar.Toggle aria-controls="basic-navbar-nav" />
                     <Navbar.Collapse id="basic-navbar-nav">
                         <Nav className="mr-auto">
-                        <LinkContainer to={'/principales'}><Nav.Link>Principales</Nav.Link></LinkContainer>
+                        <LinkContainer exact to={'/'}><Nav.Link>Principales</Nav.Link></LinkContainer>
                         <LinkContainer to={'/politica'}><Nav.Link>Política</Nav.Link></LinkContainer>
                         <LinkContainer to={'/internacionales'}><Nav.Link>Internacionales</Nav.Link></LinkContainer>
                         <LinkContainer to={'/tecnologia'}><Nav.Link>Tecnología</Nav.Link></LinkContainer>
@@ -20,7 +19,9 @@ function Menu ({ handleSubmit }) {
                         </Nav>
                         <Form inline onSubmit={ handleSubmit }>
                             <FormControl id="searchInput" type="text" placeholder="Buscar noticias.." className="mr-sm-2" />
-                            <Button variant="outline-success" type="submit">Buscar</Button>
+                            <LinkContainer to={`/search/${paramSearch}`}>
+                                <Button variant="outline-success" type="submit">Buscar</Button>
+                            </LinkContainer>
                         </Form>
                     </Navbar.Collapse>
                 </Navbar>
