@@ -11,7 +11,7 @@ function Noticia({image, title, source, url}) {
         <Card.Text>
           {source}
         </Card.Text>
-        <Button variant="primary">Go somewhere</Button>
+        <Button variant="primary"><a target="_blank" href={url}>Ver noticia original</a></Button>
       </Card.Body>
     </Card>
   );

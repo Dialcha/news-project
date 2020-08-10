@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
 import Menu from '../components/newMenu';
-import { fetchNews } from '../redux/actions/actions';
-import { connect } from "react-redux";
 import { dataMenu } from '../assets/datamenu';
 import { withRouter } from "react-router";
 
@@ -13,7 +11,6 @@ class MenuContainer extends Component {
 
     handleSubmit() {
         let value = document.getElementById("searchInput").value;
-        console.log(this.props);
         this.props.history.push(`/search/${value}`)
     }
 
@@ -27,10 +24,4 @@ class MenuContainer extends Component {
     }
 }
 
-const mapDispatchToProps = (dispatch) => {
-    return {
-      onCategoryClick: (category, keyword) => dispatch(fetchNews(category, keyword)),
-    };
-  };
-
-export default withRouter(connect(null, mapDispatchToProps)(MenuContainer));
+export default withRouter(MenuContainer);

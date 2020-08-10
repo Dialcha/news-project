@@ -18,6 +18,7 @@ function Noticias({newsByCategory}) {
                       image={noticia.img_url}
                       title={noticia.title}
                       source={noticia.source_name}
+                      url={noticia.url}
                     />
                   );
                 })
