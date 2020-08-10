@@ -1,67 +1,50 @@
 import { combineReducers } from "redux";
-import {
-    SEARCH_NEWS,
-    SELECT_CATEGORY,
-    REQUEST_CATEGORY,
-    RECEIVE_NEWS,
-  } from "../actions/actionTypes";
+import { REQUEST_CATEGORY, RECEIVE_NEWS } from "../actions/actionTypes";
 
 const initialState = {
-  news : {
+  news: {
     isFetching: true,
-    items: []
-  }
- }
-
-
-function selectedCategory(state = 'principales', action) {
-    switch (action.type) {
-        case SELECT_CATEGORY:
-            return action.category;
-        default:
-            return state;
-    }
-}
+    items: [],
+  },
+};
 
 function news(
-    state = {
-      isFetching: false,
-      items: [],
-    },
-    action
-  ) {
-    switch (action.type) {
-      case REQUEST_CATEGORY:
-        return Object.assign({}, state, {
-          isFetching: true,
-        });
-      case RECEIVE_NEWS:
-        return Object.assign({}, state, {
-          isFetching: false,
-          items: action.news,
-          lastUpdated: action.receivedAt,
-        });
-      default:
-        return state;
-    }
+  state = {
+    isFetching: false,
+    items: [],
+  },
+  action
+) {
+  switch (action.type) {
+    case REQUEST_CATEGORY:
+      return Object.assign({}, state, {
+        isFetching: true,
+      });
+    case RECEIVE_NEWS:
+      return Object.assign({}, state, {
+        isFetching: false,
+        items: action.news,
+        lastUpdated: action.receivedAt,
+      });
+    default:
+      return state;
   }
-
-  function newsByCategory(state = initialState, action) {
-    switch (action.type) {
-        case RECEIVE_NEWS:
-        case REQUEST_CATEGORY:
-            return Object.assign({}, state, {
-                news: news(state[action.category], action)
-            })
-        default:
-            return state
-    }
 }
 
+function newsByCategory(state = initialState, action) {
+  switch (action.type) {
+    case RECEIVE_NEWS:
+    case REQUEST_CATEGORY:
+      return Object.assign({}, state, {
+        news: news(state[action.category], action),
+      });
+    default:
+      return state;
+  }
+}
 
 const rootReducer = combineReducers({
-    selectedCategory,
-    newsByCategory,
-})
+  newsByCategory,
+});
 
 export default rootReducer;

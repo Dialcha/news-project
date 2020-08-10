@@ -2,6 +2,7 @@ import React from "react";
 import MenuContainer from "./containers/MenuContainer";
 import NewsContainer from "./containers/NewsContainer";
 import NotFound from "./components/NotFound";
+import Footer from "./components/Footer";
 
 import { Switch, Route } from "react-router-dom";
 
@@ -22,6 +23,7 @@ function App() {
           <NotFound></NotFound>
         </Route>
       </Switch>
+      <Footer/>
     </div>
   );
 }

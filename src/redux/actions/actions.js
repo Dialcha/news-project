@@ -1,19 +1,6 @@
 import fetch from "isomorphic-fetch";
-import { dataMenu } from "../../assets/datamenu";
-import {
-  SEARCH_NEWS,
-  SELECT_CATEGORY,
-  REQUEST_CATEGORY,
-  RECEIVE_NEWS,
-} from "./actionTypes";
+import { REQUEST_CATEGORY, RECEIVE_NEWS } from "./actionTypes";
 import * as moment from "moment";
-
-export function selectCategory(category) {
-  return {
-    type: SELECT_CATEGORY,
-    category,
-  };
-}
 
 export function requestNews(category) {
   return {
@@ -59,12 +46,5 @@ export function fetchNews(category, keyword) {
           dispatch(receiveNews(category, news));
         });
     }
-  };
-}
-
-export function searchNews(keyWord) {
-  return {
-    type: SEARCH_NEWS,
-    keyWord,
   };
 }

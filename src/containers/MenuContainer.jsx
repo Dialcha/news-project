@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Menu from '../components/newMenu';
+import Menu from '../components/Menu';
 import { dataMenu } from '../assets/datamenu';
 import { withRouter } from "react-router";
 

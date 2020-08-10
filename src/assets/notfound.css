@@ -3,10 +3,11 @@ body {
   }
   
   .mainbox {
+    display: inline-block;
     background-color: #95c2de;
     margin: auto;
     height: 600px;
-    width: 600px;
+    width: 100%;
     position: relative;
   }
   

@@ -14,7 +14,7 @@ function Loading() {
               <div></div>
             </div>
           </div>
-            <h3>Cargando noticias</h3>
+          <h3>Cargando noticias</h3>
         </Col>
       </Row>
     </Container>

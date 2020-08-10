@@ -2,11 +2,11 @@ import React from 'react'
 import { Navbar, Nav, Form, FormControl, Button } from 'react-bootstrap';
 import { LinkContainer } from 'react-router-bootstrap' //
 
-function Menu ({ handleSubmit, paramSearch }) {
+function Menu ({ handleSubmit }) {
     return(
         <div>
                 <Navbar bg="light" expand="lg">
-                <LinkContainer exact to={'/'}><Navbar.Brand>NEWS-APP</Navbar.Brand></LinkContainer>
+                <LinkContainer exact to={'/'}><Navbar.Brand>KIOSKO APPLICATION</Navbar.Brand></LinkContainer>
                     <Navbar.Toggle aria-controls="basic-navbar-nav" />
                     <Navbar.Collapse id="basic-navbar-nav">
                         <Nav className="mr-auto">

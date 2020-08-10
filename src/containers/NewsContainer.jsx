@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { fetchNews } from "../redux/actions/actions";
-import Noticias from "../components/Noticias";
+import News from "../components/News";
 import { dataMenu } from "../assets/datamenu";
 
 class NewsContainer extends Component {
@@ -39,7 +39,7 @@ class NewsContainer extends Component {
   render() {
     return (
       <div>
-        <Noticias newsByCategory={this.props.newsByCategory} />
+        <News newsByCategory={this.props.newsByCategory} />
       </div>
     );
   }
