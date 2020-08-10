@@ -17,11 +17,9 @@ function Menu ({ handleSubmit, paramSearch }) {
                         <LinkContainer to={'/espectaculos'}><Nav.Link>Espectáculos</Nav.Link></LinkContainer>
                         <LinkContainer to={'/deportes'}><Nav.Link>Deportes</Nav.Link></LinkContainer>           
                         </Nav>
-                        <Form inline onSubmit={ handleSubmit }>
+                        <Form inline>
                             <FormControl id="searchInput" type="text" placeholder="Buscar noticias.." className="mr-sm-2" />
-                            <LinkContainer to={`/search/${paramSearch}`}>
-                                <Button variant="outline-success" type="submit">Buscar</Button>
-                            </LinkContainer>
+                                <Button variant="outline-success" onClick={handleSubmit}>Buscar</Button>
                         </Form>
                     </Navbar.Collapse>
                 </Navbar>

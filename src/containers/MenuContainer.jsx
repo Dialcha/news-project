@@ -3,6 +3,7 @@ import Menu from '../components/newMenu';
 import { fetchNews } from '../redux/actions/actions';
 import { connect } from "react-redux";
 import { dataMenu } from '../assets/datamenu';
+import { withRouter } from "react-router";
 
 class MenuContainer extends Component {
     constructor(props){
@@ -10,10 +11,10 @@ class MenuContainer extends Component {
         this.handleSubmit = this.handleSubmit.bind(this);
     }
 
-    handleSubmit(e) {
-        e.preventDefault()
+    handleSubmit() {
         let value = document.getElementById("searchInput").value;
-        this.props.onCategoryClick('search', value)
+        console.log(this.props);
+        this.props.history.push(`/search/${value}`)
     }
 
     render() {
@@ -32,4 +33,4 @@ const mapDispatchToProps = (dispatch) => {
     };
   };
 
-export default connect(null, mapDispatchToProps)(MenuContainer);
+export default withRouter(connect(null, mapDispatchToProps)(MenuContainer));

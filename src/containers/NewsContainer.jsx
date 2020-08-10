@@ -7,24 +7,30 @@ import { dataMenu } from '../assets/datamenu';
 class NewsContainer extends Component {
   constructor(props) {
     super(props);
-    this.handleClick = this.handleClick.bind(this);
-    let param = this.props.match.path
-    let idRoute = dataMenu.find(element => element.route === param);
-    this.props.onCategoryClick(idRoute.id);
+    if(this.props.match.path === '/search/:keyword') {
+      this.props.onCategoryClick('search', this.props.match.params.keyword)
+    } else {
+      let param = this.props.match.path
+      let idRoute = dataMenu.find(element => element.route === param);
+      this.props.onCategoryClick(idRoute.id);
+    }
   }
 
   componentWillReceiveProps(nextProps) {
     if(this.props.match.path === nextProps.match.path) {
-      return;
-    }
-    let param = nextProps.match.path
+      if ((nextProps.match.path === '/search/:keyword') && (nextProps.match.params.keyword !== this.props.match.params.keyword)) {
+        this.props.onCategoryClick('search', nextProps.match.params.keyword)
+      } else {
+        return;
+      }
+    } else if (nextProps.match.path === '/search/:keyword') {
+      this.props.onCategoryClick('search', nextProps.match.params.keyword)
+    } else {
+      let param = nextProps.match.path
     let idRoute = dataMenu.find(element => element.route === param);
     this.props.onCategoryClick(idRoute.id);
     console.log(this.props.match);
-  }
-
-  handleClick() {
-    console.log(this.props)
+    }
   }
 
   render() {
@@ -38,7 +44,7 @@ class NewsContainer extends Component {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    onCategoryClick: (category) => dispatch(fetchNews(category)),
+    onCategoryClick: (category, keyword) => dispatch(fetchNews(category, keyword)),
   };
 };
 
