@@ -1,20 +1,26 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { Container, CardColumns } from "react-bootstrap";
-import { dataTest } from "../assets/datatest";
-import Noticia from "../components/Noticia";
 import { fetchNews } from "../redux/actions/actions";
 import Noticias from "../components/Noticias";
+import { dataMenu } from '../assets/datamenu';
 
 class NewsContainer extends Component {
   constructor(props) {
     super(props);
-    console.log(props);
     this.handleClick = this.handleClick.bind(this);
+    let param = this.props.match.path
+    let idRoute = dataMenu.find(element => element.route === param);
+    this.props.onCategoryClick(idRoute.id);
   }
 
-  componentDidMount() {
-    this.props.onCategoryClick("/principales");
+  componentWillReceiveProps(nextProps) {
+    if(this.props.match.path === nextProps.match.path) {
+      return;
+    }
+    let param = nextProps.match.path
+    let idRoute = dataMenu.find(element => element.route === param);
+    this.props.onCategoryClick(idRoute.id);
+    console.log(this.props.match);
   }
 
   handleClick() {
@@ -22,19 +28,10 @@ class NewsContainer extends Component {
   }
 
   render() {
-    //let titulos = this.props.newsByCategory.news.items && this.props.newsByCategory.news.items.map(noticia => {
-    //    return(
-    //    <h1>{noticia.title}</h1>
-    //    )
-    //})
     return (
-
-      <Noticias newsByCategory={this.props.newsByCategory}/>
-
-      //<div>
-      //  <h1>Pruebaaaa</h1>
-      //  <button onClick={this.handleClick}></button>
-      //</div>
+     <div>
+       <Noticias newsByCategory={this.props.newsByCategory}/>
+     </div> 
     );
   }
 }

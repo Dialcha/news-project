@@ -1,6 +1,5 @@
 import React from "react";
 import { Container, CardColumns } from "react-bootstrap";
-import { dataTest } from "../assets/datatest";
 import Noticia from "./Noticia";
 import Loading from "./Loading";
 

@@ -1,22 +1,30 @@
 import React from "react";
 import MenuContainer from "./containers/MenuContainer";
 import NewsContainer from "./containers/NewsContainer";
-import Loading from "./components/Loading";
+import NotFound from "./components/NotFound";
 
-
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import {
+  Switch,
+  Route
+} from "react-router-dom";
 
 function App() {
   return (
-    <Router>
       <div className="App">
         <MenuContainer />
         <br></br>
         <Switch>
-          <Route path='/' component={NewsContainer}/>
+          <Route path="/principales" component={NewsContainer}></Route>
+          <Route path="/politica" component={NewsContainer}></Route>
+          <Route path="/internacionales" component={NewsContainer}></Route>
+          <Route path="/tecnologia" component={NewsContainer}></Route>
+          <Route path="/espectaculos" component={NewsContainer}></Route>
+          <Route path="/deportes" component={NewsContainer}></Route>
+          <Route>
+            <NotFound></NotFound>
+          </Route>
         </Switch>
       </div>
-    </Router>
   );
 }
 

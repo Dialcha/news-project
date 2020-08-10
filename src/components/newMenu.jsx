@@ -3,7 +3,7 @@ import { Navbar, Nav, Form, FormControl, Button } from 'react-bootstrap';
 import MenuItem from './MenuItem';
 import { LinkContainer } from 'react-router-bootstrap' //
 
-function Menu ({ handleClick, handleSubmit, items }) {
+function Menu ({ handleSubmit }) {
     return(
         <div>
                 <Navbar bg="light" expand="lg">
@@ -11,12 +11,12 @@ function Menu ({ handleClick, handleSubmit, items }) {
                     <Navbar.Toggle aria-controls="basic-navbar-nav" />
                     <Navbar.Collapse id="basic-navbar-nav">
                         <Nav className="mr-auto">
-                        <LinkContainer to={'/principales'}><Nav.Link onClick={handleClick}>Principales</Nav.Link></LinkContainer>
-                        <LinkContainer to={'/politica'}><Nav.Link onClick={handleClick}>Política</Nav.Link></LinkContainer>
-                        <LinkContainer to={'/internacionales'}><Nav.Link onClick={handleClick}>Internacionales</Nav.Link></LinkContainer>
-                        <LinkContainer to={'/tecnologia'}><Nav.Link onClick={handleClick}>Tecnología</Nav.Link></LinkContainer>
-                        <LinkContainer to={'/espectaculos'}><Nav.Link onClick={handleClick}>Espectáculos</Nav.Link></LinkContainer>
-                        <LinkContainer to={'/deportes'}><Nav.Link onClick={handleClick}>Deportes</Nav.Link></LinkContainer>           
+                        <LinkContainer to={'/principales'}><Nav.Link>Principales</Nav.Link></LinkContainer>
+                        <LinkContainer to={'/politica'}><Nav.Link>Política</Nav.Link></LinkContainer>
+                        <LinkContainer to={'/internacionales'}><Nav.Link>Internacionales</Nav.Link></LinkContainer>
+                        <LinkContainer to={'/tecnologia'}><Nav.Link>Tecnología</Nav.Link></LinkContainer>
+                        <LinkContainer to={'/espectaculos'}><Nav.Link>Espectáculos</Nav.Link></LinkContainer>
+                        <LinkContainer to={'/deportes'}><Nav.Link>Deportes</Nav.Link></LinkContainer>           
                         </Nav>
                         <Form inline onSubmit={ handleSubmit }>
                             <FormControl id="searchInput" type="text" placeholder="Buscar noticias.." className="mr-sm-2" />
